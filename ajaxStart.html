@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+</head>
+<body>
+<div id="content"></div>
+<button>AjaxStart</button>
+<script>
+$(document).ajaxStart(function() {
+	console.log("ajaxStart");
+}).ajaxComplete(function() {
+	console.log("ajaxComplete");
+}).ajaxError(function() {
+	console.log("ajaxError");
+}).ajaxSend(function() {
+	console.log("ajaxSend");
+}).ajaxStop(function() {
+	console.log("ajaxStop");
+}).ajaxSuccess(function() {
+	console.log("ajaxSuccess");
+});
+
+$.ajax({
+	url: "/WCFService/Service.svc/GetData",
+	dataType: "json",
+	contentType: "application/json; charset=utf-8",
+	type: "POST",
+	data: "1234",
+	success: function(data) {
+		console.log(data);
+	},
+	error: function(data) {
+		console.log(data);
+	}
+});
+</script>
+</body>
+</html>
