@@ -10,7 +10,7 @@ using System.Web.Script.Serialization;
 // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "Service" in code, svc and config file together.
 public class Service : IService
 {
-	public string GetData(int value)
+	public string GetData(string value)
 	{
         var s = new JavaScriptSerializer();
         return s.Serialize(new { value });

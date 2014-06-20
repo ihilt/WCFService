@@ -22,11 +22,11 @@ $(document).ajaxStart(function() {
 });
 
 $.ajax({
-	url: "/WCFService/Service.svc/GetData",
+	url: "Service.svc/GetData",
 	dataType: "json",
 	contentType: "application/json; charset=utf-8",
 	type: "POST",
-	data: "1234",
+	data: "\"Hilt\"",
 	success: function(data) {
 		console.log(data);
 	},
