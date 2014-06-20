@@ -1,39 +1,54 @@
 <!DOCTYPE html>
 <html>
 <head>
-<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <title>WCF Service Test Project</title>
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 </head>
 <body>
-<div id="content"></div>
-<button>AjaxStart</button>
+    <button>Search</button><input type="search" /><span class="loading" style="display:none;">Loading...</span>
+    <div class="timing"></div>
+    <div id="content"></div>
 <script>
-$(document).ajaxStart(function() {
-	console.log("ajaxStart");
-}).ajaxComplete(function() {
-	console.log("ajaxComplete");
-}).ajaxError(function() {
-	console.log("ajaxError");
-}).ajaxSend(function() {
-	console.log("ajaxSend");
-}).ajaxStop(function() {
-	console.log("ajaxStop");
-}).ajaxSuccess(function() {
-	console.log("ajaxSuccess");
-});
+    var startTime, endTime;
+    $(document).ajaxStart(function() {
+        console.log("ajaxStart");
+        startTime = Date.now();
+        $(".loading").show();
+    }).ajaxComplete(function() {
+	    console.log("ajaxComplete");
+    }).ajaxError(function() {
+	    console.log("ajaxError");
+    }).ajaxSend(function() {
+	    console.log("ajaxSend");
+    }).ajaxStop(function() {
+        console.log("ajaxStop");
+        $(".loading").hide();
+        endTime = Date.now();
+        $(".timing").html(endTime - startTime);
+    }).ajaxSuccess(function() {
+	    console.log("ajaxSuccess");
+    });
 
-$.ajax({
-	url: "Service.svc/GetData",
-	dataType: "json",
-	contentType: "application/json; charset=utf-8",
-	type: "POST",
-	data: "\"Hilt\"",
-	success: function(data) {
-		console.log(data);
-	},
-	error: function(jQXHR, textStatus, errorThrown) {
-		console.log("Error: " + errorThrown);
-	}
-});
+    $("button").click(function () {
+        var searchTerm = JSON.stringify($("input").val().trim());
+        $.ajax({
+            url: "Service.svc/GetData",
+            dataType: "json",
+            contentType: "application/json; charset=utf-8",
+            type: "POST",
+            data: searchTerm,
+            success: function (data) {
+                var d = $.parseJSON(data);
+                console.log("Object", $.parseJSON(data));
+                for (var i in d.employees) {
+                    $("#content").append(d.employees[i].FirstName + " " + d.employees[i].LastName + "<br />");
+                }
+            },
+            error: function (jQXHR, textStatus, errorThrown) {
+                console.log("Error: " + errorThrown);
+            }
+        });
+    });
 </script>
 </body>
 </html>

@@ -21,7 +21,7 @@ using System.Reflection;
 
 
 
-[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="CTMS")]
+[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="AdventureWorks2012_Data")]
 public partial class DataClassesDataContext : System.Data.Linq.DataContext
 {
 	
@@ -32,7 +32,7 @@ public partial class DataClassesDataContext : System.Data.Linq.DataContext
   #endregion
 	
 	public DataClassesDataContext() : 
-			base(global::System.Configuration.ConfigurationManager.ConnectionStrings["CTMSConnectionString"].ConnectionString, mappingSource)
+			base(global::System.Configuration.ConfigurationManager.ConnectionStrings["AdventureWorks2012_DataConnectionString"].ConnectionString, mappingSource)
 	{
 		OnCreated();
 	}
@@ -61,937 +61,343 @@ public partial class DataClassesDataContext : System.Data.Linq.DataContext
 		OnCreated();
 	}
 	
-	public System.Data.Linq.Table<DON1> DON1s
+	public System.Data.Linq.Table<vEmployee> vEmployees
 	{
 		get
 		{
-			return this.GetTable<DON1>();
+			return this.GetTable<vEmployee>();
 		}
 	}
 }
 
-[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.DON1")]
-public partial class DON1
+[global::System.Data.Linq.Mapping.TableAttribute(Name="HumanResources.vEmployee")]
+public partial class vEmployee
 {
 	
-	private string _DON1_NUMBER;
+	private int _BusinessEntityID;
 	
-	private string _DON1_LNAME;
+	private string _Title;
 	
-	private string _DON1_FNAME;
+	private string _FirstName;
 	
-	private string _DON1_MI;
+	private string _MiddleName;
 	
-	private System.Nullable<System.DateTime> _DON1_DOB;
+	private string _LastName;
 	
-	private string _DON1_SEX;
+	private string _Suffix;
 	
-	private string _DON1_RACE;
+	private string _JobTitle;
 	
-	private System.Nullable<System.DateTime> _DON1_DOD;
+	private string _PhoneNumber;
 	
-	private string _DON1_COD;
+	private string _PhoneNumberType;
 	
-	private string _DON1_TOD;
+	private string _EmailAddress;
 	
-	private string _DON1_CONSENT;
+	private int _EmailPromotion;
 	
-	private string _DON1_C_RELATION;
+	private string _AddressLine1;
 	
-	private string _DON1_C_LNAME;
+	private string _AddressLine2;
 	
-	private string _DON1_C_FNAME;
+	private string _City;
 	
-	private string _DON1_C_MI;
+	private string _StateProvinceName;
 	
-	private string _DON1_C_ADDRESS;
+	private string _PostalCode;
 	
-	private string _DON1_C_ADDRESS2;
+	private string _CountryRegionName;
 	
-	private string _DON1_C_CITY;
+	private System.Xml.Linq.XElement _AdditionalContactInfo;
 	
-	private string _DON1_C_STATE;
-	
-	private string _DON1_C_ZIP;
-	
-	private string _DON1_C_ZIP2;
-	
-	private string _DON1_C_PHONE;
-	
-	private string _DON1_HOSPITAL;
-	
-	private string _DON1_H_PHY;
-	
-	private string _DON1_REF_ORG;
-	
-	private string _DON1_REF_BY;
-	
-	private string _DON1_ATOP_ORDER;
-	
-	private string _DON1_COR_CASE;
-	
-	private string _DON1_FHOME;
-	
-	private string _DON1_TISS_NUM;
-	
-	private string _DON1_STATUS;
-	
-	private System.Nullable<System.DateTime> _DON1_DATE_ADDED;
-	
-	private string _DON1_TIME_ADDED;
-	
-	private System.Nullable<double> _DON1_WHO_ADDED;
-	
-	private System.Nullable<System.DateTime> _DON1_DATE_UPDATE;
-	
-	private System.Nullable<System.DateTime> _DON1_TIME_UPDATE;
-	
-	private System.Nullable<double> _DON1_WHO_UPDATE;
-	
-	private System.Nullable<System.DateTime> _DON1_DATE_DELETE;
-	
-	private System.Nullable<System.DateTime> _DON1_TIME_DELETE;
-	
-	private System.Nullable<double> _DON1_WHO_DELETE;
-	
-	private string _DON1_XREF;
-	
-	private string _DON1_REF_STAT;
-	
-	private string _DON1_COMMENT;
-	
-	private string _DON1_COMMENT2;
-	
-	private string _DON1_PROC_NUM;
-	
-	private string _DON1_BRANCH;
-	
-	private string _DON1_PROC_SITE;
-	
-	private string _DON1_BDN_KEY;
-	
-	private string _DON1_BPN_KEY;
-	
-	private string _DON1_DISB_RESTRICT;
-	
-	private System.Nullable<int> _DTYPE;
-	
-	public DON1()
+	public vEmployee()
 	{
 	}
 	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[DON1-NUMBER]", Storage="_DON1_NUMBER", DbType="VarChar(8)")]
-	public string DON1_NUMBER
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BusinessEntityID", DbType="Int NOT NULL")]
+	public int BusinessEntityID
 	{
 		get
 		{
-			return this._DON1_NUMBER;
+			return this._BusinessEntityID;
 		}
 		set
 		{
-			if ((this._DON1_NUMBER != value))
+			if ((this._BusinessEntityID != value))
 			{
-				this._DON1_NUMBER = value;
+				this._BusinessEntityID = value;
 			}
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[DON1-LNAME]", Storage="_DON1_LNAME", DbType="VarChar(25)")]
-	public string DON1_LNAME
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Title", DbType="NVarChar(8)")]
+	public string Title
 	{
 		get
 		{
-			return this._DON1_LNAME;
+			return this._Title;
 		}
 		set
 		{
-			if ((this._DON1_LNAME != value))
+			if ((this._Title != value))
 			{
-				this._DON1_LNAME = value;
+				this._Title = value;
 			}
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[DON1-FNAME]", Storage="_DON1_FNAME", DbType="VarChar(15)")]
-	public string DON1_FNAME
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FirstName", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+	public string FirstName
 	{
 		get
 		{
-			return this._DON1_FNAME;
+			return this._FirstName;
 		}
 		set
 		{
-			if ((this._DON1_FNAME != value))
+			if ((this._FirstName != value))
 			{
-				this._DON1_FNAME = value;
+				this._FirstName = value;
 			}
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[DON1-MI]", Storage="_DON1_MI", DbType="VarChar(1)")]
-	public string DON1_MI
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MiddleName", DbType="NVarChar(50)")]
+	public string MiddleName
 	{
 		get
 		{
-			return this._DON1_MI;
+			return this._MiddleName;
 		}
 		set
 		{
-			if ((this._DON1_MI != value))
+			if ((this._MiddleName != value))
 			{
-				this._DON1_MI = value;
+				this._MiddleName = value;
 			}
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[DON1-DOB]", Storage="_DON1_DOB", DbType="DateTime")]
-	public System.Nullable<System.DateTime> DON1_DOB
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LastName", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+	public string LastName
 	{
 		get
 		{
-			return this._DON1_DOB;
+			return this._LastName;
 		}
 		set
 		{
-			if ((this._DON1_DOB != value))
+			if ((this._LastName != value))
 			{
-				this._DON1_DOB = value;
+				this._LastName = value;
 			}
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[DON1-SEX]", Storage="_DON1_SEX", DbType="VarChar(1)")]
-	public string DON1_SEX
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Suffix", DbType="NVarChar(10)")]
+	public string Suffix
 	{
 		get
 		{
-			return this._DON1_SEX;
+			return this._Suffix;
 		}
 		set
 		{
-			if ((this._DON1_SEX != value))
+			if ((this._Suffix != value))
 			{
-				this._DON1_SEX = value;
+				this._Suffix = value;
 			}
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[DON1-RACE]", Storage="_DON1_RACE", DbType="VarChar(2)")]
-	public string DON1_RACE
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_JobTitle", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+	public string JobTitle
 	{
 		get
 		{
-			return this._DON1_RACE;
+			return this._JobTitle;
 		}
 		set
 		{
-			if ((this._DON1_RACE != value))
+			if ((this._JobTitle != value))
 			{
-				this._DON1_RACE = value;
+				this._JobTitle = value;
 			}
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[DON1-DOD]", Storage="_DON1_DOD", DbType="DateTime")]
-	public System.Nullable<System.DateTime> DON1_DOD
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PhoneNumber", DbType="NVarChar(25)")]
+	public string PhoneNumber
 	{
 		get
 		{
-			return this._DON1_DOD;
+			return this._PhoneNumber;
 		}
 		set
 		{
-			if ((this._DON1_DOD != value))
+			if ((this._PhoneNumber != value))
 			{
-				this._DON1_DOD = value;
+				this._PhoneNumber = value;
 			}
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[DON1-COD]", Storage="_DON1_COD", DbType="VarChar(2)")]
-	public string DON1_COD
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PhoneNumberType", DbType="NVarChar(50)")]
+	public string PhoneNumberType
 	{
 		get
 		{
-			return this._DON1_COD;
+			return this._PhoneNumberType;
 		}
 		set
 		{
-			if ((this._DON1_COD != value))
+			if ((this._PhoneNumberType != value))
 			{
-				this._DON1_COD = value;
+				this._PhoneNumberType = value;
 			}
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[DON1-TOD]", Storage="_DON1_TOD", DbType="VarChar(15)")]
-	public string DON1_TOD
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EmailAddress", DbType="NVarChar(50)")]
+	public string EmailAddress
 	{
 		get
 		{
-			return this._DON1_TOD;
+			return this._EmailAddress;
 		}
 		set
 		{
-			if ((this._DON1_TOD != value))
+			if ((this._EmailAddress != value))
 			{
-				this._DON1_TOD = value;
+				this._EmailAddress = value;
 			}
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[DON1-CONSENT]", Storage="_DON1_CONSENT", DbType="VarChar(1)")]
-	public string DON1_CONSENT
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EmailPromotion", DbType="Int NOT NULL")]
+	public int EmailPromotion
 	{
 		get
 		{
-			return this._DON1_CONSENT;
+			return this._EmailPromotion;
 		}
 		set
 		{
-			if ((this._DON1_CONSENT != value))
+			if ((this._EmailPromotion != value))
 			{
-				this._DON1_CONSENT = value;
+				this._EmailPromotion = value;
 			}
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[DON1-C-RELATION]", Storage="_DON1_C_RELATION", DbType="VarChar(2)")]
-	public string DON1_C_RELATION
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AddressLine1", DbType="NVarChar(60) NOT NULL", CanBeNull=false)]
+	public string AddressLine1
 	{
 		get
 		{
-			return this._DON1_C_RELATION;
+			return this._AddressLine1;
 		}
 		set
 		{
-			if ((this._DON1_C_RELATION != value))
+			if ((this._AddressLine1 != value))
 			{
-				this._DON1_C_RELATION = value;
+				this._AddressLine1 = value;
 			}
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[DON1-C-LNAME]", Storage="_DON1_C_LNAME", DbType="VarChar(25)")]
-	public string DON1_C_LNAME
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AddressLine2", DbType="NVarChar(60)")]
+	public string AddressLine2
 	{
 		get
 		{
-			return this._DON1_C_LNAME;
+			return this._AddressLine2;
 		}
 		set
 		{
-			if ((this._DON1_C_LNAME != value))
+			if ((this._AddressLine2 != value))
 			{
-				this._DON1_C_LNAME = value;
+				this._AddressLine2 = value;
 			}
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[DON1-C-FNAME]", Storage="_DON1_C_FNAME", DbType="VarChar(15)")]
-	public string DON1_C_FNAME
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_City", DbType="NVarChar(30) NOT NULL", CanBeNull=false)]
+	public string City
 	{
 		get
 		{
-			return this._DON1_C_FNAME;
+			return this._City;
 		}
 		set
 		{
-			if ((this._DON1_C_FNAME != value))
+			if ((this._City != value))
 			{
-				this._DON1_C_FNAME = value;
+				this._City = value;
 			}
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[DON1-C-MI]", Storage="_DON1_C_MI", DbType="VarChar(1)")]
-	public string DON1_C_MI
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StateProvinceName", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+	public string StateProvinceName
 	{
 		get
 		{
-			return this._DON1_C_MI;
+			return this._StateProvinceName;
 		}
 		set
 		{
-			if ((this._DON1_C_MI != value))
+			if ((this._StateProvinceName != value))
 			{
-				this._DON1_C_MI = value;
+				this._StateProvinceName = value;
 			}
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[DON1-C-ADDRESS]", Storage="_DON1_C_ADDRESS", DbType="VarChar(30)")]
-	public string DON1_C_ADDRESS
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PostalCode", DbType="NVarChar(15) NOT NULL", CanBeNull=false)]
+	public string PostalCode
 	{
 		get
 		{
-			return this._DON1_C_ADDRESS;
+			return this._PostalCode;
 		}
 		set
 		{
-			if ((this._DON1_C_ADDRESS != value))
+			if ((this._PostalCode != value))
 			{
-				this._DON1_C_ADDRESS = value;
+				this._PostalCode = value;
 			}
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[DON1-C-ADDRESS2]", Storage="_DON1_C_ADDRESS2", DbType="VarChar(30)")]
-	public string DON1_C_ADDRESS2
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CountryRegionName", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+	public string CountryRegionName
 	{
 		get
 		{
-			return this._DON1_C_ADDRESS2;
+			return this._CountryRegionName;
 		}
 		set
 		{
-			if ((this._DON1_C_ADDRESS2 != value))
+			if ((this._CountryRegionName != value))
 			{
-				this._DON1_C_ADDRESS2 = value;
+				this._CountryRegionName = value;
 			}
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[DON1-C-CITY]", Storage="_DON1_C_CITY", DbType="VarChar(20)")]
-	public string DON1_C_CITY
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AdditionalContactInfo", DbType="Xml", UpdateCheck=UpdateCheck.Never)]
+	public System.Xml.Linq.XElement AdditionalContactInfo
 	{
 		get
 		{
-			return this._DON1_C_CITY;
+			return this._AdditionalContactInfo;
 		}
 		set
 		{
-			if ((this._DON1_C_CITY != value))
+			if ((this._AdditionalContactInfo != value))
 			{
-				this._DON1_C_CITY = value;
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[DON1-C-STATE]", Storage="_DON1_C_STATE", DbType="VarChar(2)")]
-	public string DON1_C_STATE
-	{
-		get
-		{
-			return this._DON1_C_STATE;
-		}
-		set
-		{
-			if ((this._DON1_C_STATE != value))
-			{
-				this._DON1_C_STATE = value;
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[DON1-C-ZIP]", Storage="_DON1_C_ZIP", DbType="VarChar(5)")]
-	public string DON1_C_ZIP
-	{
-		get
-		{
-			return this._DON1_C_ZIP;
-		}
-		set
-		{
-			if ((this._DON1_C_ZIP != value))
-			{
-				this._DON1_C_ZIP = value;
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[DON1-C-ZIP2]", Storage="_DON1_C_ZIP2", DbType="VarChar(4)")]
-	public string DON1_C_ZIP2
-	{
-		get
-		{
-			return this._DON1_C_ZIP2;
-		}
-		set
-		{
-			if ((this._DON1_C_ZIP2 != value))
-			{
-				this._DON1_C_ZIP2 = value;
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[DON1-C-PHONE]", Storage="_DON1_C_PHONE", DbType="VarChar(14)")]
-	public string DON1_C_PHONE
-	{
-		get
-		{
-			return this._DON1_C_PHONE;
-		}
-		set
-		{
-			if ((this._DON1_C_PHONE != value))
-			{
-				this._DON1_C_PHONE = value;
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[DON1-HOSPITAL]", Storage="_DON1_HOSPITAL", DbType="VarChar(4)")]
-	public string DON1_HOSPITAL
-	{
-		get
-		{
-			return this._DON1_HOSPITAL;
-		}
-		set
-		{
-			if ((this._DON1_HOSPITAL != value))
-			{
-				this._DON1_HOSPITAL = value;
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[DON1-H-PHY]", Storage="_DON1_H_PHY", DbType="VarChar(4)")]
-	public string DON1_H_PHY
-	{
-		get
-		{
-			return this._DON1_H_PHY;
-		}
-		set
-		{
-			if ((this._DON1_H_PHY != value))
-			{
-				this._DON1_H_PHY = value;
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[DON1-REF-ORG]", Storage="_DON1_REF_ORG", DbType="VarChar(2)")]
-	public string DON1_REF_ORG
-	{
-		get
-		{
-			return this._DON1_REF_ORG;
-		}
-		set
-		{
-			if ((this._DON1_REF_ORG != value))
-			{
-				this._DON1_REF_ORG = value;
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[DON1-REF-BY]", Storage="_DON1_REF_BY", DbType="VarChar(40)")]
-	public string DON1_REF_BY
-	{
-		get
-		{
-			return this._DON1_REF_BY;
-		}
-		set
-		{
-			if ((this._DON1_REF_BY != value))
-			{
-				this._DON1_REF_BY = value;
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[DON1-ATOP-ORDER]", Storage="_DON1_ATOP_ORDER", DbType="VarChar(1)")]
-	public string DON1_ATOP_ORDER
-	{
-		get
-		{
-			return this._DON1_ATOP_ORDER;
-		}
-		set
-		{
-			if ((this._DON1_ATOP_ORDER != value))
-			{
-				this._DON1_ATOP_ORDER = value;
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[DON1-COR-CASE]", Storage="_DON1_COR_CASE", DbType="VarChar(1)")]
-	public string DON1_COR_CASE
-	{
-		get
-		{
-			return this._DON1_COR_CASE;
-		}
-		set
-		{
-			if ((this._DON1_COR_CASE != value))
-			{
-				this._DON1_COR_CASE = value;
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[DON1-FHOME]", Storage="_DON1_FHOME", DbType="VarChar(4)")]
-	public string DON1_FHOME
-	{
-		get
-		{
-			return this._DON1_FHOME;
-		}
-		set
-		{
-			if ((this._DON1_FHOME != value))
-			{
-				this._DON1_FHOME = value;
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[DON1-TISS-NUM]", Storage="_DON1_TISS_NUM", DbType="VarChar(3)")]
-	public string DON1_TISS_NUM
-	{
-		get
-		{
-			return this._DON1_TISS_NUM;
-		}
-		set
-		{
-			if ((this._DON1_TISS_NUM != value))
-			{
-				this._DON1_TISS_NUM = value;
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[DON1-STATUS]", Storage="_DON1_STATUS", DbType="VarChar(1)")]
-	public string DON1_STATUS
-	{
-		get
-		{
-			return this._DON1_STATUS;
-		}
-		set
-		{
-			if ((this._DON1_STATUS != value))
-			{
-				this._DON1_STATUS = value;
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[DON1-DATE-ADDED]", Storage="_DON1_DATE_ADDED", DbType="DateTime")]
-	public System.Nullable<System.DateTime> DON1_DATE_ADDED
-	{
-		get
-		{
-			return this._DON1_DATE_ADDED;
-		}
-		set
-		{
-			if ((this._DON1_DATE_ADDED != value))
-			{
-				this._DON1_DATE_ADDED = value;
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[DON1-TIME-ADDED]", Storage="_DON1_TIME_ADDED", DbType="VarChar(15)")]
-	public string DON1_TIME_ADDED
-	{
-		get
-		{
-			return this._DON1_TIME_ADDED;
-		}
-		set
-		{
-			if ((this._DON1_TIME_ADDED != value))
-			{
-				this._DON1_TIME_ADDED = value;
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[DON1-WHO-ADDED]", Storage="_DON1_WHO_ADDED", DbType="Float")]
-	public System.Nullable<double> DON1_WHO_ADDED
-	{
-		get
-		{
-			return this._DON1_WHO_ADDED;
-		}
-		set
-		{
-			if ((this._DON1_WHO_ADDED != value))
-			{
-				this._DON1_WHO_ADDED = value;
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[DON1-DATE-UPDATE]", Storage="_DON1_DATE_UPDATE", DbType="DateTime")]
-	public System.Nullable<System.DateTime> DON1_DATE_UPDATE
-	{
-		get
-		{
-			return this._DON1_DATE_UPDATE;
-		}
-		set
-		{
-			if ((this._DON1_DATE_UPDATE != value))
-			{
-				this._DON1_DATE_UPDATE = value;
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[DON1-TIME-UPDATE]", Storage="_DON1_TIME_UPDATE", DbType="DateTime")]
-	public System.Nullable<System.DateTime> DON1_TIME_UPDATE
-	{
-		get
-		{
-			return this._DON1_TIME_UPDATE;
-		}
-		set
-		{
-			if ((this._DON1_TIME_UPDATE != value))
-			{
-				this._DON1_TIME_UPDATE = value;
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[DON1-WHO-UPDATE]", Storage="_DON1_WHO_UPDATE", DbType="Float")]
-	public System.Nullable<double> DON1_WHO_UPDATE
-	{
-		get
-		{
-			return this._DON1_WHO_UPDATE;
-		}
-		set
-		{
-			if ((this._DON1_WHO_UPDATE != value))
-			{
-				this._DON1_WHO_UPDATE = value;
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[DON1-DATE-DELETE]", Storage="_DON1_DATE_DELETE", DbType="DateTime")]
-	public System.Nullable<System.DateTime> DON1_DATE_DELETE
-	{
-		get
-		{
-			return this._DON1_DATE_DELETE;
-		}
-		set
-		{
-			if ((this._DON1_DATE_DELETE != value))
-			{
-				this._DON1_DATE_DELETE = value;
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[DON1-TIME-DELETE]", Storage="_DON1_TIME_DELETE", DbType="DateTime")]
-	public System.Nullable<System.DateTime> DON1_TIME_DELETE
-	{
-		get
-		{
-			return this._DON1_TIME_DELETE;
-		}
-		set
-		{
-			if ((this._DON1_TIME_DELETE != value))
-			{
-				this._DON1_TIME_DELETE = value;
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[DON1-WHO-DELETE]", Storage="_DON1_WHO_DELETE", DbType="Float")]
-	public System.Nullable<double> DON1_WHO_DELETE
-	{
-		get
-		{
-			return this._DON1_WHO_DELETE;
-		}
-		set
-		{
-			if ((this._DON1_WHO_DELETE != value))
-			{
-				this._DON1_WHO_DELETE = value;
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[DON1-XREF]", Storage="_DON1_XREF", DbType="VarChar(15)")]
-	public string DON1_XREF
-	{
-		get
-		{
-			return this._DON1_XREF;
-		}
-		set
-		{
-			if ((this._DON1_XREF != value))
-			{
-				this._DON1_XREF = value;
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[DON1-REF-STAT]", Storage="_DON1_REF_STAT", DbType="VarChar(2)")]
-	public string DON1_REF_STAT
-	{
-		get
-		{
-			return this._DON1_REF_STAT;
-		}
-		set
-		{
-			if ((this._DON1_REF_STAT != value))
-			{
-				this._DON1_REF_STAT = value;
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[DON1-COMMENT]", Storage="_DON1_COMMENT", DbType="VarChar(50)")]
-	public string DON1_COMMENT
-	{
-		get
-		{
-			return this._DON1_COMMENT;
-		}
-		set
-		{
-			if ((this._DON1_COMMENT != value))
-			{
-				this._DON1_COMMENT = value;
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[DON1-COMMENT2]", Storage="_DON1_COMMENT2", DbType="VarChar(50)")]
-	public string DON1_COMMENT2
-	{
-		get
-		{
-			return this._DON1_COMMENT2;
-		}
-		set
-		{
-			if ((this._DON1_COMMENT2 != value))
-			{
-				this._DON1_COMMENT2 = value;
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[DON1-PROC-NUM]", Storage="_DON1_PROC_NUM", DbType="VarChar(9)")]
-	public string DON1_PROC_NUM
-	{
-		get
-		{
-			return this._DON1_PROC_NUM;
-		}
-		set
-		{
-			if ((this._DON1_PROC_NUM != value))
-			{
-				this._DON1_PROC_NUM = value;
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[DON1-BRANCH]", Storage="_DON1_BRANCH", DbType="VarChar(3)")]
-	public string DON1_BRANCH
-	{
-		get
-		{
-			return this._DON1_BRANCH;
-		}
-		set
-		{
-			if ((this._DON1_BRANCH != value))
-			{
-				this._DON1_BRANCH = value;
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[DON1-PROC-SITE]", Storage="_DON1_PROC_SITE", DbType="VarChar(3)")]
-	public string DON1_PROC_SITE
-	{
-		get
-		{
-			return this._DON1_PROC_SITE;
-		}
-		set
-		{
-			if ((this._DON1_PROC_SITE != value))
-			{
-				this._DON1_PROC_SITE = value;
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[DON1-BDN-KEY]", Storage="_DON1_BDN_KEY", DbType="VarChar(9)")]
-	public string DON1_BDN_KEY
-	{
-		get
-		{
-			return this._DON1_BDN_KEY;
-		}
-		set
-		{
-			if ((this._DON1_BDN_KEY != value))
-			{
-				this._DON1_BDN_KEY = value;
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[DON1-BPN-KEY]", Storage="_DON1_BPN_KEY", DbType="VarChar(12)")]
-	public string DON1_BPN_KEY
-	{
-		get
-		{
-			return this._DON1_BPN_KEY;
-		}
-		set
-		{
-			if ((this._DON1_BPN_KEY != value))
-			{
-				this._DON1_BPN_KEY = value;
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[DON1-DISB-RESTRICT]", Storage="_DON1_DISB_RESTRICT", DbType="VarChar(1)")]
-	public string DON1_DISB_RESTRICT
-	{
-		get
-		{
-			return this._DON1_DISB_RESTRICT;
-		}
-		set
-		{
-			if ((this._DON1_DISB_RESTRICT != value))
-			{
-				this._DON1_DISB_RESTRICT = value;
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DTYPE", DbType="Int")]
-	public System.Nullable<int> DTYPE
-	{
-		get
-		{
-			return this._DTYPE;
-		}
-		set
-		{
-			if ((this._DTYPE != value))
-			{
-				this._DTYPE = value;
+				this._AdditionalContactInfo = value;
 			}
 		}
 	}

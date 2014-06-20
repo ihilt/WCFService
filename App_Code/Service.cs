@@ -12,8 +12,10 @@ public class Service : IService
 {
 	public string GetData(string value)
 	{
+        DataClassesDataContext db = new DataClassesDataContext();
+        var employees = from a in db.vEmployees where a.LastName.StartsWith(value) select a;
         var s = new JavaScriptSerializer();
-        return s.Serialize(new { value });
+        return s.Serialize(new { employees });
 	}
 
 	public CompositeType GetDataUsingDataContract(CompositeType composite)

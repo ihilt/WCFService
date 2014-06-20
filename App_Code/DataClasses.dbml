@@ -1,58 +1,25 @@
-﻿<?xml version="1.0" encoding="utf-8"?><Database Name="CTMS" Class="DataClassesDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="WebSettings" ConnectionString="Data Source=localhost;Initial Catalog=CTMS;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="CTMSConnectionString" Provider="System.Data.SqlClient" />
-  <Table Name="dbo.DON1" Member="DON1s">
-    <Type Name="DON1">
-      <Column Name="[DON1-NUMBER]" Member="DON1_NUMBER" Type="System.String" DbType="VarChar(8)" CanBeNull="true" />
-      <Column Name="[DON1-LNAME]" Member="DON1_LNAME" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
-      <Column Name="[DON1-FNAME]" Member="DON1_FNAME" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
-      <Column Name="[DON1-MI]" Member="DON1_MI" Type="System.String" DbType="VarChar(1)" CanBeNull="true" />
-      <Column Name="[DON1-DOB]" Member="DON1_DOB" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="[DON1-SEX]" Member="DON1_SEX" Type="System.String" DbType="VarChar(1)" CanBeNull="true" />
-      <Column Name="[DON1-RACE]" Member="DON1_RACE" Type="System.String" DbType="VarChar(2)" CanBeNull="true" />
-      <Column Name="[DON1-DOD]" Member="DON1_DOD" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="[DON1-COD]" Member="DON1_COD" Type="System.String" DbType="VarChar(2)" CanBeNull="true" />
-      <Column Name="[DON1-TOD]" Member="DON1_TOD" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
-      <Column Name="[DON1-CONSENT]" Member="DON1_CONSENT" Type="System.String" DbType="VarChar(1)" CanBeNull="true" />
-      <Column Name="[DON1-C-RELATION]" Member="DON1_C_RELATION" Type="System.String" DbType="VarChar(2)" CanBeNull="true" />
-      <Column Name="[DON1-C-LNAME]" Member="DON1_C_LNAME" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
-      <Column Name="[DON1-C-FNAME]" Member="DON1_C_FNAME" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
-      <Column Name="[DON1-C-MI]" Member="DON1_C_MI" Type="System.String" DbType="VarChar(1)" CanBeNull="true" />
-      <Column Name="[DON1-C-ADDRESS]" Member="DON1_C_ADDRESS" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
-      <Column Name="[DON1-C-ADDRESS2]" Member="DON1_C_ADDRESS2" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
-      <Column Name="[DON1-C-CITY]" Member="DON1_C_CITY" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
-      <Column Name="[DON1-C-STATE]" Member="DON1_C_STATE" Type="System.String" DbType="VarChar(2)" CanBeNull="true" />
-      <Column Name="[DON1-C-ZIP]" Member="DON1_C_ZIP" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
-      <Column Name="[DON1-C-ZIP2]" Member="DON1_C_ZIP2" Type="System.String" DbType="VarChar(4)" CanBeNull="true" />
-      <Column Name="[DON1-C-PHONE]" Member="DON1_C_PHONE" Type="System.String" DbType="VarChar(14)" CanBeNull="true" />
-      <Column Name="[DON1-HOSPITAL]" Member="DON1_HOSPITAL" Type="System.String" DbType="VarChar(4)" CanBeNull="true" />
-      <Column Name="[DON1-H-PHY]" Member="DON1_H_PHY" Type="System.String" DbType="VarChar(4)" CanBeNull="true" />
-      <Column Name="[DON1-REF-ORG]" Member="DON1_REF_ORG" Type="System.String" DbType="VarChar(2)" CanBeNull="true" />
-      <Column Name="[DON1-REF-BY]" Member="DON1_REF_BY" Type="System.String" DbType="VarChar(40)" CanBeNull="true" />
-      <Column Name="[DON1-ATOP-ORDER]" Member="DON1_ATOP_ORDER" Type="System.String" DbType="VarChar(1)" CanBeNull="true" />
-      <Column Name="[DON1-COR-CASE]" Member="DON1_COR_CASE" Type="System.String" DbType="VarChar(1)" CanBeNull="true" />
-      <Column Name="[DON1-FHOME]" Member="DON1_FHOME" Type="System.String" DbType="VarChar(4)" CanBeNull="true" />
-      <Column Name="[DON1-TISS-NUM]" Member="DON1_TISS_NUM" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="[DON1-STATUS]" Member="DON1_STATUS" Type="System.String" DbType="VarChar(1)" CanBeNull="true" />
-      <Column Name="[DON1-DATE-ADDED]" Member="DON1_DATE_ADDED" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="[DON1-TIME-ADDED]" Member="DON1_TIME_ADDED" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
-      <Column Name="[DON1-WHO-ADDED]" Member="DON1_WHO_ADDED" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="[DON1-DATE-UPDATE]" Member="DON1_DATE_UPDATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="[DON1-TIME-UPDATE]" Member="DON1_TIME_UPDATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="[DON1-WHO-UPDATE]" Member="DON1_WHO_UPDATE" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="[DON1-DATE-DELETE]" Member="DON1_DATE_DELETE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="[DON1-TIME-DELETE]" Member="DON1_TIME_DELETE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="[DON1-WHO-DELETE]" Member="DON1_WHO_DELETE" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="[DON1-XREF]" Member="DON1_XREF" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
-      <Column Name="[DON1-REF-STAT]" Member="DON1_REF_STAT" Type="System.String" DbType="VarChar(2)" CanBeNull="true" />
-      <Column Name="[DON1-COMMENT]" Member="DON1_COMMENT" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="[DON1-COMMENT2]" Member="DON1_COMMENT2" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="[DON1-PROC-NUM]" Member="DON1_PROC_NUM" Type="System.String" DbType="VarChar(9)" CanBeNull="true" />
-      <Column Name="[DON1-BRANCH]" Member="DON1_BRANCH" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="[DON1-PROC-SITE]" Member="DON1_PROC_SITE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="[DON1-BDN-KEY]" Member="DON1_BDN_KEY" Type="System.String" DbType="VarChar(9)" CanBeNull="true" />
-      <Column Name="[DON1-BPN-KEY]" Member="DON1_BPN_KEY" Type="System.String" DbType="VarChar(12)" CanBeNull="true" />
-      <Column Name="[DON1-DISB-RESTRICT]" Member="DON1_DISB_RESTRICT" Type="System.String" DbType="VarChar(1)" CanBeNull="true" />
-      <Column Name="DTYPE" Type="System.Int32" DbType="Int" CanBeNull="true" />
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="AdventureWorks2012_Data" Class="DataClassesDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\AdventureWorks2012_Data.mdf;Integrated Security=True;Connect Timeout=30" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="AdventureWorks2012_DataConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="HumanResources.vEmployee" Member="vEmployees">
+    <Type Name="vEmployee">
+      <Column Name="BusinessEntityID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(8)" CanBeNull="true" />
+      <Column Name="FirstName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="MiddleName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="LastName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Suffix" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="JobTitle" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="PhoneNumber" Type="System.String" DbType="NVarChar(25)" CanBeNull="true" />
+      <Column Name="PhoneNumberType" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="EmailAddress" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="EmailPromotion" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AddressLine1" Type="System.String" DbType="NVarChar(60) NOT NULL" CanBeNull="false" />
+      <Column Name="AddressLine2" Type="System.String" DbType="NVarChar(60)" CanBeNull="true" />
+      <Column Name="City" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="StateProvinceName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="PostalCode" Type="System.String" DbType="NVarChar(15) NOT NULL" CanBeNull="false" />
+      <Column Name="CountryRegionName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="AdditionalContactInfo" Type="System.Xml.Linq.XElement" DbType="Xml" CanBeNull="true" UpdateCheck="Never" />
     </Type>
   </Table>
 </Database>
