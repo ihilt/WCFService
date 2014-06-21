@@ -38,10 +38,9 @@
             type: "POST",
             data: searchTerm,
             success: function (data) {
-                var d = $.parseJSON(data);
-                console.log("Object", $.parseJSON(data));
-                for (var i in d.employees) {
-                    $("#content").append(d.employees[i].FirstName + " " + d.employees[i].LastName + "<br />");
+                console.log("Object", data);
+                for (var i in data) {
+                    $("#content").append(data[i].FirstName + " " + data[i].LastName + "<br />");
                 }
             },
             error: function (jQXHR, textStatus, errorThrown) {

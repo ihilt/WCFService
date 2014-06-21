@@ -15,7 +15,7 @@ public interface IService
     [WebInvoke(Method = "POST",
      ResponseFormat = WebMessageFormat.Json,
      UriTemplate="getEmployees")]
-	string GetEmployees(string value);
+    IQueryable<vEmployee> GetEmployees(string value);
 
 	[OperationContract]
     [WebInvoke(Method = "POST",
