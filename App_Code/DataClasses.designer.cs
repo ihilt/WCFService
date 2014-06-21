@@ -21,7 +21,7 @@ using System.Reflection;
 
 
 
-[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="AdventureWorks2012_Data")]
+[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="AdventureWorks")]
 public partial class DataClassesDataContext : System.Data.Linq.DataContext
 {
 	
@@ -32,7 +32,7 @@ public partial class DataClassesDataContext : System.Data.Linq.DataContext
   #endregion
 	
 	public DataClassesDataContext() : 
-			base(global::System.Configuration.ConfigurationManager.ConnectionStrings["AdventureWorks2012_DataConnectionString"].ConnectionString, mappingSource)
+			base(global::System.Configuration.ConfigurationManager.ConnectionStrings["AdventureWorksConnectionString"].ConnectionString, mappingSource)
 	{
 		OnCreated();
 	}

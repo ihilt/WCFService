@@ -32,7 +32,7 @@
     $("button").click(function () {
         var searchTerm = JSON.stringify($("input").val().trim());
         $.ajax({
-            url: "Service.svc/GetData",
+            url: "Service.svc/getEmployees",
             dataType: "json",
             contentType: "application/json; charset=utf-8",
             type: "POST",
