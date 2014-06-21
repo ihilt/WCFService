@@ -10,11 +10,11 @@ using System.Web.Script.Serialization;
 // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "Service" in code, svc and config file together.
 public class Service : IService
 {
-	public IQueryable<vEmployee> GetEmployees(string value)
+	public int GetEmployees(string value)
 	{
         DataClassesDataContext db = new DataClassesDataContext();
-        var employees = from a in db.vEmployees where a.LastName.StartsWith(value) select a;
-        return employees;
+        var employees = from a in db.Persons where a.LastName.StartsWith(value) select a;
+        return employees.Count();
 	}
 
 	public CompositeType GetDataUsingDataContract(CompositeType composite)

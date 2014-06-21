@@ -39,9 +39,7 @@
             data: searchTerm,
             success: function (data) {
                 console.log("Object", data);
-                for (var i in data) {
-                    $("#content").append(data[i].FirstName + " " + data[i].LastName + "<br />");
-                }
+                $("#content").append("term: " + searchTerm + " count: " + data + "<br />");
             },
             error: function (jQXHR, textStatus, errorThrown) {
                 console.log("Error: " + errorThrown);

@@ -29,6 +29,9 @@ public partial class DataClassesDataContext : System.Data.Linq.DataContext
 	
   #region Extensibility Method Definitions
   partial void OnCreated();
+  partial void InsertPerson(Person instance);
+  partial void UpdatePerson(Person instance);
+  partial void DeletePerson(Person instance);
   #endregion
 	
 	public DataClassesDataContext() : 
@@ -61,20 +64,26 @@ public partial class DataClassesDataContext : System.Data.Linq.DataContext
 		OnCreated();
 	}
 	
-	public System.Data.Linq.Table<vEmployee> vEmployees
+	public System.Data.Linq.Table<Person> Persons
 	{
 		get
 		{
-			return this.GetTable<vEmployee>();
+			return this.GetTable<Person>();
 		}
 	}
 }
 
-[global::System.Data.Linq.Mapping.TableAttribute(Name="HumanResources.vEmployee")]
-public partial class vEmployee
+[global::System.Data.Linq.Mapping.TableAttribute(Name="Person.Person")]
+public partial class Person : INotifyPropertyChanging, INotifyPropertyChanged
 {
 	
+	private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+	
 	private int _BusinessEntityID;
+	
+	private string _PersonType;
+	
+	private bool _NameStyle;
 	
 	private string _Title;
 	
@@ -86,35 +95,54 @@ public partial class vEmployee
 	
 	private string _Suffix;
 	
-	private string _JobTitle;
-	
-	private string _PhoneNumber;
-	
-	private string _PhoneNumberType;
-	
-	private string _EmailAddress;
-	
 	private int _EmailPromotion;
-	
-	private string _AddressLine1;
-	
-	private string _AddressLine2;
-	
-	private string _City;
-	
-	private string _StateProvinceName;
-	
-	private string _PostalCode;
-	
-	private string _CountryRegionName;
 	
 	private System.Xml.Linq.XElement _AdditionalContactInfo;
 	
-	public vEmployee()
+	private System.Xml.Linq.XElement _Demographics;
+	
+	private System.Guid _rowguid;
+	
+	private System.DateTime _ModifiedDate;
+	
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnBusinessEntityIDChanging(int value);
+    partial void OnBusinessEntityIDChanged();
+    partial void OnPersonTypeChanging(string value);
+    partial void OnPersonTypeChanged();
+    partial void OnNameStyleChanging(bool value);
+    partial void OnNameStyleChanged();
+    partial void OnTitleChanging(string value);
+    partial void OnTitleChanged();
+    partial void OnFirstNameChanging(string value);
+    partial void OnFirstNameChanged();
+    partial void OnMiddleNameChanging(string value);
+    partial void OnMiddleNameChanged();
+    partial void OnLastNameChanging(string value);
+    partial void OnLastNameChanged();
+    partial void OnSuffixChanging(string value);
+    partial void OnSuffixChanged();
+    partial void OnEmailPromotionChanging(int value);
+    partial void OnEmailPromotionChanged();
+    partial void OnAdditionalContactInfoChanging(System.Xml.Linq.XElement value);
+    partial void OnAdditionalContactInfoChanged();
+    partial void OnDemographicsChanging(System.Xml.Linq.XElement value);
+    partial void OnDemographicsChanged();
+    partial void OnrowguidChanging(System.Guid value);
+    partial void OnrowguidChanged();
+    partial void OnModifiedDateChanging(System.DateTime value);
+    partial void OnModifiedDateChanged();
+    #endregion
+	
+	public Person()
 	{
+		OnCreated();
 	}
 	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BusinessEntityID", DbType="Int NOT NULL")]
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BusinessEntityID", DbType="Int NOT NULL", IsPrimaryKey=true)]
 	public int BusinessEntityID
 	{
 		get
@@ -125,7 +153,51 @@ public partial class vEmployee
 		{
 			if ((this._BusinessEntityID != value))
 			{
+				this.OnBusinessEntityIDChanging(value);
+				this.SendPropertyChanging();
 				this._BusinessEntityID = value;
+				this.SendPropertyChanged("BusinessEntityID");
+				this.OnBusinessEntityIDChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PersonType", DbType="NChar(2) NOT NULL", CanBeNull=false)]
+	public string PersonType
+	{
+		get
+		{
+			return this._PersonType;
+		}
+		set
+		{
+			if ((this._PersonType != value))
+			{
+				this.OnPersonTypeChanging(value);
+				this.SendPropertyChanging();
+				this._PersonType = value;
+				this.SendPropertyChanged("PersonType");
+				this.OnPersonTypeChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NameStyle", DbType="Bit NOT NULL")]
+	public bool NameStyle
+	{
+		get
+		{
+			return this._NameStyle;
+		}
+		set
+		{
+			if ((this._NameStyle != value))
+			{
+				this.OnNameStyleChanging(value);
+				this.SendPropertyChanging();
+				this._NameStyle = value;
+				this.SendPropertyChanged("NameStyle");
+				this.OnNameStyleChanged();
 			}
 		}
 	}
@@ -141,7 +213,11 @@ public partial class vEmployee
 		{
 			if ((this._Title != value))
 			{
+				this.OnTitleChanging(value);
+				this.SendPropertyChanging();
 				this._Title = value;
+				this.SendPropertyChanged("Title");
+				this.OnTitleChanged();
 			}
 		}
 	}
@@ -157,7 +233,11 @@ public partial class vEmployee
 		{
 			if ((this._FirstName != value))
 			{
+				this.OnFirstNameChanging(value);
+				this.SendPropertyChanging();
 				this._FirstName = value;
+				this.SendPropertyChanged("FirstName");
+				this.OnFirstNameChanged();
 			}
 		}
 	}
@@ -173,7 +253,11 @@ public partial class vEmployee
 		{
 			if ((this._MiddleName != value))
 			{
+				this.OnMiddleNameChanging(value);
+				this.SendPropertyChanging();
 				this._MiddleName = value;
+				this.SendPropertyChanged("MiddleName");
+				this.OnMiddleNameChanged();
 			}
 		}
 	}
@@ -189,7 +273,11 @@ public partial class vEmployee
 		{
 			if ((this._LastName != value))
 			{
+				this.OnLastNameChanging(value);
+				this.SendPropertyChanging();
 				this._LastName = value;
+				this.SendPropertyChanged("LastName");
+				this.OnLastNameChanged();
 			}
 		}
 	}
@@ -205,71 +293,11 @@ public partial class vEmployee
 		{
 			if ((this._Suffix != value))
 			{
+				this.OnSuffixChanging(value);
+				this.SendPropertyChanging();
 				this._Suffix = value;
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_JobTitle", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-	public string JobTitle
-	{
-		get
-		{
-			return this._JobTitle;
-		}
-		set
-		{
-			if ((this._JobTitle != value))
-			{
-				this._JobTitle = value;
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PhoneNumber", DbType="NVarChar(25)")]
-	public string PhoneNumber
-	{
-		get
-		{
-			return this._PhoneNumber;
-		}
-		set
-		{
-			if ((this._PhoneNumber != value))
-			{
-				this._PhoneNumber = value;
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PhoneNumberType", DbType="NVarChar(50)")]
-	public string PhoneNumberType
-	{
-		get
-		{
-			return this._PhoneNumberType;
-		}
-		set
-		{
-			if ((this._PhoneNumberType != value))
-			{
-				this._PhoneNumberType = value;
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EmailAddress", DbType="NVarChar(50)")]
-	public string EmailAddress
-	{
-		get
-		{
-			return this._EmailAddress;
-		}
-		set
-		{
-			if ((this._EmailAddress != value))
-			{
-				this._EmailAddress = value;
+				this.SendPropertyChanged("Suffix");
+				this.OnSuffixChanged();
 			}
 		}
 	}
@@ -285,108 +313,16 @@ public partial class vEmployee
 		{
 			if ((this._EmailPromotion != value))
 			{
+				this.OnEmailPromotionChanging(value);
+				this.SendPropertyChanging();
 				this._EmailPromotion = value;
+				this.SendPropertyChanged("EmailPromotion");
+				this.OnEmailPromotionChanged();
 			}
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AddressLine1", DbType="NVarChar(60) NOT NULL", CanBeNull=false)]
-	public string AddressLine1
-	{
-		get
-		{
-			return this._AddressLine1;
-		}
-		set
-		{
-			if ((this._AddressLine1 != value))
-			{
-				this._AddressLine1 = value;
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AddressLine2", DbType="NVarChar(60)")]
-	public string AddressLine2
-	{
-		get
-		{
-			return this._AddressLine2;
-		}
-		set
-		{
-			if ((this._AddressLine2 != value))
-			{
-				this._AddressLine2 = value;
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_City", DbType="NVarChar(30) NOT NULL", CanBeNull=false)]
-	public string City
-	{
-		get
-		{
-			return this._City;
-		}
-		set
-		{
-			if ((this._City != value))
-			{
-				this._City = value;
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StateProvinceName", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-	public string StateProvinceName
-	{
-		get
-		{
-			return this._StateProvinceName;
-		}
-		set
-		{
-			if ((this._StateProvinceName != value))
-			{
-				this._StateProvinceName = value;
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PostalCode", DbType="NVarChar(15) NOT NULL", CanBeNull=false)]
-	public string PostalCode
-	{
-		get
-		{
-			return this._PostalCode;
-		}
-		set
-		{
-			if ((this._PostalCode != value))
-			{
-				this._PostalCode = value;
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CountryRegionName", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-	public string CountryRegionName
-	{
-		get
-		{
-			return this._CountryRegionName;
-		}
-		set
-		{
-			if ((this._CountryRegionName != value))
-			{
-				this._CountryRegionName = value;
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AdditionalContactInfo", DbType="Xml", UpdateCheck=UpdateCheck.Never)]
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AdditionalContactInfo", DbType="Xml", CanBeNull=true, UpdateCheck=UpdateCheck.Never)]
 	public System.Xml.Linq.XElement AdditionalContactInfo
 	{
 		get
@@ -397,8 +333,92 @@ public partial class vEmployee
 		{
 			if ((this._AdditionalContactInfo != value))
 			{
+				this.OnAdditionalContactInfoChanging(value);
+				this.SendPropertyChanging();
 				this._AdditionalContactInfo = value;
+				this.SendPropertyChanged("AdditionalContactInfo");
+				this.OnAdditionalContactInfoChanged();
 			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Demographics", DbType="Xml", CanBeNull=true, UpdateCheck=UpdateCheck.Never)]
+	public System.Xml.Linq.XElement Demographics
+	{
+		get
+		{
+			return this._Demographics;
+		}
+		set
+		{
+			if ((this._Demographics != value))
+			{
+				this.OnDemographicsChanging(value);
+				this.SendPropertyChanging();
+				this._Demographics = value;
+				this.SendPropertyChanged("Demographics");
+				this.OnDemographicsChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_rowguid", DbType="UniqueIdentifier NOT NULL")]
+	public System.Guid rowguid
+	{
+		get
+		{
+			return this._rowguid;
+		}
+		set
+		{
+			if ((this._rowguid != value))
+			{
+				this.OnrowguidChanging(value);
+				this.SendPropertyChanging();
+				this._rowguid = value;
+				this.SendPropertyChanged("rowguid");
+				this.OnrowguidChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ModifiedDate", DbType="DateTime NOT NULL")]
+	public System.DateTime ModifiedDate
+	{
+		get
+		{
+			return this._ModifiedDate;
+		}
+		set
+		{
+			if ((this._ModifiedDate != value))
+			{
+				this.OnModifiedDateChanging(value);
+				this.SendPropertyChanging();
+				this._ModifiedDate = value;
+				this.SendPropertyChanged("ModifiedDate");
+				this.OnModifiedDateChanged();
+			}
+		}
+	}
+	
+	public event PropertyChangingEventHandler PropertyChanging;
+	
+	public event PropertyChangedEventHandler PropertyChanged;
+	
+	protected virtual void SendPropertyChanging()
+	{
+		if ((this.PropertyChanging != null))
+		{
+			this.PropertyChanging(this, emptyChangingEventArgs);
+		}
+	}
+	
+	protected virtual void SendPropertyChanged(String propertyName)
+	{
+		if ((this.PropertyChanged != null))
+		{
+			this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 		}
 	}
 }
